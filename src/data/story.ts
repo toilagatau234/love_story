@@ -44,7 +44,7 @@ export const storyData: StoryConfig = {
     paragraphs: [
       "Anh vẫn luôn thương em suốt thời gian qua.",
       "Và em đã biết điều này rồi.",
-      "Và hôm nay, anh muốn trao cho em một danh phận đàng hoàng."
+      "Hôm nay, với tình cảm chân thành nhất anh muốn trao cho em một danh phận đàng hoàng."
     ]
   },
   scene02: {

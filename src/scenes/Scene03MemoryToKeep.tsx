@@ -7,7 +7,6 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const Scene03MemoryToKeep: React.FC = () => {
   const photo04 = photos.find(p => p.id === 'photo-04') || photos[3];
-  // Requirement 5: Move photo from Scene 4 (photo-03) up to be photo 02 in Scene 3!
   const photo03 = photos.find(p => p.id === 'photo-03') || photos[2];
   const containerRef = useScrollReveal<HTMLDivElement>(0.12);
 
@@ -85,7 +84,7 @@ export const Scene03MemoryToKeep: React.FC = () => {
           </p>
         </div>
 
-        {/* Two Treasured Photographs (Photo 04 photobooth + Photo 03 close selfie) */}
+        {/* Two Treasured Photographs (Clean Polaroid frames, removed "Kỷ niệm bên em") */}
         <div
           style={{
             display: 'flex',
@@ -125,7 +124,7 @@ export const Scene03MemoryToKeep: React.FC = () => {
             />
           </div>
 
-          {/* Photo 02: Close Selfie Frame (moved from Scene 4) */}
+          {/* Photo 02: Close Selfie Frame (Clean without text) */}
           <div
             className="reveal-init delay-3 photobooth-frame"
             style={{
@@ -135,10 +134,10 @@ export const Scene03MemoryToKeep: React.FC = () => {
               transform: 'rotate(1.8deg)',
               transition: 'transform 0.5s ease, opacity 0.85s ease',
               boxShadow: '0 25px 55px rgba(0, 0, 0, 0.85), 0 0 1px rgba(255, 255, 255, 0.25)',
-              borderRadius: '8px',
+              borderRadius: '6px',
               overflow: 'hidden',
               backgroundColor: '#ffffff',
-              padding: '10px 10px 30px 10px'
+              padding: '10px'
             }}
           >
             <img
@@ -147,20 +146,11 @@ export const Scene03MemoryToKeep: React.FC = () => {
               style={{
                 width: '100%',
                 display: 'block',
-                aspectRatio: '1 / 1.12',
+                aspectRatio: '1 / 1.15',
                 objectFit: 'cover',
                 borderRadius: '4px'
               }}
             />
-            <div style={{
-              textAlign: 'center',
-              marginTop: '8px',
-              fontFamily: 'var(--font-handwriting)',
-              fontSize: '1.2rem',
-              color: '#332a30'
-            }}>
-              Kỷ niệm bên em
-            </div>
           </div>
         </div>
 

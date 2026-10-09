@@ -39,7 +39,7 @@ export const GiftBox: React.FC = () => {
       position: 'relative'
     }}>
       {!isOpen ? (
-        // Unopened Gift Box (Directly clickable, no button - Requirement 1)
+        // Unopened Gift Box (Directly clickable, no text under title - Requirement 3)
         <div
           onClick={handleOpenGift}
           style={{
@@ -131,24 +131,15 @@ export const GiftBox: React.FC = () => {
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.5rem, 1.3rem + 1vw, 2rem)',
               color: 'var(--color-ivory)',
-              marginBottom: '0.5rem',
+              margin: '0',
               fontWeight: 400
             }}>
               {finalGift.title}
             </h3>
-            <p style={{
-              fontSize: 'clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem)',
-              color: 'var(--color-rose)',
-              fontStyle: 'italic',
-              fontFamily: 'var(--font-display)',
-              letterSpacing: '0.03em'
-            }}>
-              (Chạm vào hộp quà để mở)
-            </p>
           </div>
         </div>
       ) : (
-        // Revealed Flower Bouquet (Clean, NO text overlay) and Love Letter
+        // Revealed Flower Bouquet and Love Letter
         <div style={{
           width: '100%',
           display: 'flex',
@@ -157,7 +148,7 @@ export const GiftBox: React.FC = () => {
           gap: '2.5rem',
           animation: 'fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards'
         }}>
-          {/* Flower Bouquet Frame - PURE, CLEAN, ZERO TEXT OVERLAY (Requirement 8) */}
+          {/* Flower Bouquet Frame - PURE, CLEAN, ZERO TEXT OVERLAY */}
           <div style={{
             position: 'relative',
             width: '100%',

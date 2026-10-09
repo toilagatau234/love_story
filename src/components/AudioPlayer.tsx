@@ -9,18 +9,10 @@ export const AudioPlayer: React.FC = () => {
     const audio = new Audio('/music.mp3');
     audio.loop = true;
     audio.preload = 'auto';
-    audio.volume = 0.75;
+    audio.volume = 0.8;
     audioRef.current = audio;
 
-    // Handle user interaction for autoplay policy
-    const handleFirstInteraction = () => {
-      // User can start with button, but if they click anywhere we can optionally let music play or keep manual toggle
-    };
-
-    window.addEventListener('click', handleFirstInteraction, { once: true });
-
     return () => {
-      window.removeEventListener('click', handleFirstInteraction);
       audio.pause();
       audio.src = '';
     };
@@ -44,7 +36,6 @@ export const AudioPlayer: React.FC = () => {
     }
   };
 
-  // Expose play function to global window for scene cues
   useEffect(() => {
     (window as unknown as { startLoveSong?: () => void }).startLoveSong = () => {
       if (audioRef.current && !isPlaying) {
@@ -65,8 +56,8 @@ export const AudioPlayer: React.FC = () => {
     }}>
       <button
         onClick={toggleMusic}
-        aria-label={isPlaying ? 'Tắt bài hát Số 1 Thế Giới' : 'Bật bài hát Số 1 Thế Giới'}
-        title={isPlaying ? 'Tắt nhạc' : 'Bật bài hát "Số 1 Thế Giới"'}
+        aria-label={isPlaying ? 'Tắt nhạc: SỐ 1 THẾ GIỚI - PHÁT HUY T4' : 'Bật nhạc: SỐ 1 THẾ GIỚI - PHÁT HUY T4'}
+        title={isPlaying ? 'Tắt nhạc' : 'Bật bài hát "SỐ 1 THẾ GIỚI - PHÁT HUY T4"'}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -88,12 +79,12 @@ export const AudioPlayer: React.FC = () => {
           <>
             <Music size={15} style={{ animation: 'spin 4s linear infinite' }} />
             <Volume2 size={16} />
-            <span style={{ fontSize: '0.8rem', letterSpacing: '0.04em', fontWeight: 500 }}>Số 1 Thế Giới</span>
+            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em', fontWeight: 600 }}>SỐ 1 THẾ GIỚI - PHÁT HUY T4</span>
           </>
         ) : (
           <>
             <VolumeX size={16} />
-            <span style={{ fontSize: '0.8rem', letterSpacing: '0.04em' }}>Bật nhạc</span>
+            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em' }}>SỐ 1 THẾ GIỚI - PHÁT HUY T4</span>
           </>
         )}
       </button>
