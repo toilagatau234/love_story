@@ -12,7 +12,7 @@ export const AudioPlayer: React.FC = () => {
     const audio = new Audio('/music.mp3');
     audio.loop = true;
     audio.preload = 'auto';
-    audio.volume = 0.8;
+    audio.volume = 0.2;
     audioRef.current = audio;
 
     const playWithIntroSkip = () => {
