@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Volume2, VolumeX, Music } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 export const AudioPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -100,42 +100,75 @@ export const AudioPlayer: React.FC = () => {
     }}>
       <button
         onClick={toggleMusic}
-        aria-label={isPlaying ? 'Tắt nhạc: SỐ 1 THẾ GIỚI - COVER NỮ CHILL' : 'Bật nhạc: SỐ 1 THẾ GIỚI - COVER NỮ CHILL'}
-        title={isPlaying ? 'Tắt nhạc' : 'Bật bài hát "SỐ 1 THẾ GIỚI - COVER NỮ CHILL"'}
+        aria-label={isPlaying ? 'Tắt nhạc' : 'Bật nhạc'}
+        title={isPlaying ? 'Đang phát: SỐ 1 THẾ GIỚI - Nhấn để tắt' : 'Nhấn để bật nhạc'}
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.55rem 1.1rem',
+          justifyContent: 'center',
+          gap: '0.6rem',
+          padding: isPlaying ? '0.6rem 0.95rem' : '0.6rem',
+          minWidth: '42px',
+          height: '42px',
           backgroundColor: 'rgba(22, 18, 23, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          border: '1px solid rgba(195, 154, 145, 0.4)',
+          border: isPlaying ? '1px solid rgba(157, 49, 85, 0.6)' : '1px solid rgba(195, 154, 145, 0.3)',
           borderRadius: '9999px',
           color: isPlaying ? 'var(--color-rose)' : 'var(--color-muted)',
-          fontSize: '0.85rem',
           cursor: 'pointer',
-          transition: 'all 0.35s ease',
-          boxShadow: isPlaying ? '0 0 25px rgba(157, 49, 85, 0.55)' : '0 4px 15px rgba(0,0,0,0.4)'
+          transition: 'all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)',
+          boxShadow: isPlaying ? '0 0 25px rgba(157, 49, 85, 0.45), 0 4px 15px rgba(0,0,0,0.5)' : '0 4px 15px rgba(0,0,0,0.4)'
         }}
       >
         {isPlaying ? (
           <>
-            <Music size={15} style={{ animation: 'spin 4s linear infinite', color: 'var(--color-rose)' }} />
-            <Volume2 size={16} />
-            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em', fontWeight: 600 }}>SỐ 1 THẾ GIỚI (COVER NỮ CHILL)</span>
+            <Volume2 size={18} style={{ color: 'var(--color-rose)' }} />
+            {/* Animated Sound Wave Equalizer Bars */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '3px', height: '14px' }}>
+              <span className="sound-wave-bar bar-1" />
+              <span className="sound-wave-bar bar-2" />
+              <span className="sound-wave-bar bar-3" />
+              <span className="sound-wave-bar bar-4" />
+            </div>
           </>
         ) : (
-          <>
-            <VolumeX size={16} />
-            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em' }}>SỐ 1 THẾ GIỚI (COVER NỮ CHILL)</span>
-          </>
+          <VolumeX size={18} />
         )}
       </button>
       <style>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        .sound-wave-bar {
+          display: inline-block;
+          width: 3px;
+          border-radius: 9999px;
+          background: linear-gradient(to top, var(--color-rose), #ff8fa3);
+          transform-origin: bottom;
+        }
+        .bar-1 {
+          height: 12px;
+          animation: waveJump 0.8s ease-in-out infinite alternate;
+        }
+        .bar-2 {
+          height: 16px;
+          animation: waveJump 0.6s ease-in-out infinite alternate 0.2s;
+        }
+        .bar-3 {
+          height: 10px;
+          animation: waveJump 0.9s ease-in-out infinite alternate 0.4s;
+        }
+        .bar-4 {
+          height: 14px;
+          animation: waveJump 0.7s ease-in-out infinite alternate 0.1s;
+        }
+        @keyframes waveJump {
+          0% {
+            transform: scaleY(0.3);
+            opacity: 0.6;
+          }
+          100% {
+            transform: scaleY(1);
+            opacity: 1;
+          }
         }
       `}</style>
     </div>
