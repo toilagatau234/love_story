@@ -18,7 +18,6 @@ export const AudioPlayer: React.FC = () => {
     const playWithIntroSkip = () => {
       if (!audioRef.current || hasAutoStartedRef.current) return;
       
-      // Set to 14.5s (skips intro right to vocals)
       if (audioRef.current.currentTime < 1) {
         audioRef.current.currentTime = INTRO_SKIP_SECONDS;
       }
@@ -28,35 +27,40 @@ export const AudioPlayer: React.FC = () => {
         .then(() => {
           setIsPlaying(true);
           hasAutoStartedRef.current = true;
+          cleanupListeners();
         })
         .catch(() => {
-          // Autoplay was blocked, will play on next gesture
+          // Autoplay blocked by browser policy without user gesture yet,
+          // will trigger on first interaction.
         });
     };
 
-    // Auto-play when user scrolls down into Scene 2 or past Hero
-    const handleScrollTrigger = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      if (scrollY > 300 && !hasAutoStartedRef.current) {
-        playWithIntroSkip();
-      }
-    };
-
-    // Unlock on first touch/click anywhere
     const handleFirstGesture = () => {
-      if (window.scrollY > 300 && !hasAutoStartedRef.current) {
+      if (!hasAutoStartedRef.current) {
         playWithIntroSkip();
       }
     };
 
-    window.addEventListener('scroll', handleScrollTrigger, { passive: true });
+    const cleanupListeners = () => {
+      window.removeEventListener('scroll', handleFirstGesture);
+      window.removeEventListener('touchstart', handleFirstGesture);
+      window.removeEventListener('pointerdown', handleFirstGesture);
+      window.removeEventListener('click', handleFirstGesture);
+      window.removeEventListener('keydown', handleFirstGesture);
+    };
+
+    // Try playing immediately when page loads
+    playWithIntroSkip();
+
+    // Listen for any immediate touch / click / scroll / keydown
+    window.addEventListener('scroll', handleFirstGesture, { passive: true });
     window.addEventListener('touchstart', handleFirstGesture, { passive: true });
+    window.addEventListener('pointerdown', handleFirstGesture, { passive: true });
     window.addEventListener('click', handleFirstGesture, { passive: true });
+    window.addEventListener('keydown', handleFirstGesture, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScrollTrigger);
-      window.removeEventListener('touchstart', handleFirstGesture);
-      window.removeEventListener('click', handleFirstGesture);
+      cleanupListeners();
       audio.pause();
       audio.src = '';
     };
