@@ -1,36 +1,12 @@
 import React, { useState } from 'react';
 import { Gift, Heart } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import { finalGift } from '../data/finalGift';
 
 export const GiftBox: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpening, setIsOpening] = useState(false);
 
   const handleOpenGift = () => {
-    if (isOpen || isOpening) return;
-    setIsOpening(true);
-
-    // Lightweight non-blocking confetti
-    try {
-      requestAnimationFrame(() => {
-        confetti({
-          particleCount: 35,
-          spread: 60,
-          origin: { y: 0.7 },
-          colors: ['#C39A91', '#9d3155', '#F4EEE7', '#fcd5ce', '#e0a899'],
-          disableForReducedMotion: true,
-          ticks: 150
-        });
-      });
-    } catch {
-      // Fallback silently
-    }
-
-    setTimeout(() => {
-      setIsOpen(true);
-      setIsOpening(false);
-    }, 450);
+    setIsOpen(true);
   };
 
   return (
@@ -58,13 +34,10 @@ export const GiftBox: React.FC = () => {
             border: '1px solid var(--color-border)',
             borderRadius: 'var(--radius-lg)',
             boxShadow: 'var(--shadow-lg), var(--shadow-glow)',
-            transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease',
-            transform: isOpening ? 'scale(1.05)' : 'scale(1)',
-            opacity: isOpening ? 0.75 : 1,
+            transition: 'transform 0.25s ease, opacity 0.25s ease',
             userSelect: 'none',
             maxWidth: '450px',
-            width: '92%',
-            willChange: 'transform, opacity'
+            width: '92%'
           }}
           className="gift-box-interactive shimmer-card"
         >
