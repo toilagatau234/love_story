@@ -2,6 +2,7 @@ import React from 'react';
 import { SceneShell } from '../components/SceneShell';
 import { GiftBox } from '../components/GiftBox';
 import { finalGift } from '../data/finalGift';
+import { storyData } from '../data/story';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export const Scene06FinalSurprise: React.FC = () => {
@@ -52,7 +53,7 @@ export const Scene06FinalSurprise: React.FC = () => {
               lineHeight: 1.75
             }}
           >
-            Dù phía trước thế nào, đây là điều anh muốn gửi gắm trọn vẹn nhất đến Bé Cam.
+            Dù phía trước thế nào, đây là điều muốn gửi gắm trọn vẹn nhất đến {storyData.meta.recipient}.
           </p>
         </div>
 
@@ -84,7 +85,7 @@ export const Scene06FinalSurprise: React.FC = () => {
               lineHeight: 1.6
             }}
           >
-            “Cảm ơn em vì đã là một phần tươi đẹp nhất trong thanh xuân của anh.”
+            “Cảm ơn vì đã là một phần tươi đẹp nhất trong những năm tháng thanh xuân.”
           </p>
           <span
             style={{
@@ -95,7 +96,7 @@ export const Scene06FinalSurprise: React.FC = () => {
               fontWeight: 500
             }}
           >
-            Sáu năm & Mãi mãi
+            {storyData.meta.duration} & Kỷ niệm
           </span>
         </div>
       </div>

@@ -183,7 +183,7 @@ export const GiftBox: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--color-rose)' }}>
                 <Heart size={16} fill="#9d3155" />
                 <span style={{ fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>
-                  DÀNH CHO BÉ CAM
+                  DÀNH CHO {finalGift.letterRecipient.toUpperCase()}
                 </span>
               </div>
               <span style={{
@@ -193,7 +193,7 @@ export const GiftBox: React.FC = () => {
                 letterSpacing: '0.04em',
                 lineHeight: 1.1
               }}>
-                Thư gửi Bé Cam
+                Thư gửi {finalGift.letterRecipient}
               </span>
             </div>
 
@@ -230,7 +230,7 @@ export const GiftBox: React.FC = () => {
                 fontStyle: 'italic',
                 fontFamily: 'var(--font-display)'
               }}>
-                Thương em thật nhiều,
+                Thương gửi,
               </span>
               <span style={{
                 fontFamily: 'var(--font-handwriting)',
