@@ -13,7 +13,7 @@ export const finalGift: FinalGiftConfig = {
   enabled: true,
   title: "Anh còn chuẩn bị cho em một điều nhỏ nữa…",
   message: "Một món quà được chuẩn bị bằng tất cả sự chân thành gửi đến Bé Cam.",
-  image: "/images/flower-bouquet.jpg",
+  image: "/images/flower-bouquet.webp",
   ctaLabel: "Chạm để mở món quà",
   letterSender: "Anh",
   letterRecipient: "Bé Cam",
