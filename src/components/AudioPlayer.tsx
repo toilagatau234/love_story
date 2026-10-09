@@ -96,8 +96,8 @@ export const AudioPlayer: React.FC = () => {
     }}>
       <button
         onClick={toggleMusic}
-        aria-label={isPlaying ? 'Tắt nhạc: SỐ 1 THẾ GIỚI - PHÁT HUY T4' : 'Bật nhạc: SỐ 1 THẾ GIỚI - PHÁT HUY T4'}
-        title={isPlaying ? 'Tắt nhạc' : 'Bật bài hát "SỐ 1 THẾ GIỚI - PHÁT HUY T4"'}
+        aria-label={isPlaying ? 'Tắt nhạc: SỐ 1 THẾ GIỚI - COVER NỮ CHILL' : 'Bật nhạc: SỐ 1 THẾ GIỚI - COVER NỮ CHILL'}
+        title={isPlaying ? 'Tắt nhạc' : 'Bật bài hát "SỐ 1 THẾ GIỚI - COVER NỮ CHILL"'}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -119,12 +119,12 @@ export const AudioPlayer: React.FC = () => {
           <>
             <Music size={15} style={{ animation: 'spin 4s linear infinite', color: 'var(--color-rose)' }} />
             <Volume2 size={16} />
-            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em', fontWeight: 600 }}>SỐ 1 THẾ GIỚI - PHÁT HUY T4</span>
+            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em', fontWeight: 600 }}>SỐ 1 THẾ GIỚI (COVER NỮ CHILL)</span>
           </>
         ) : (
           <>
             <VolumeX size={16} />
-            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em' }}>SỐ 1 THẾ GIỚI - PHÁT HUY T4</span>
+            <span style={{ fontSize: '0.78rem', letterSpacing: '0.04em' }}>SỐ 1 THẾ GIỚI (COVER NỮ CHILL)</span>
           </>
         )}
       </button>

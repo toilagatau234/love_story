@@ -4,7 +4,7 @@ import { ScrollCue } from '../components/ScrollCue';
 import { storyData } from '../data/story';
 import { photos } from '../data/photos';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export const Scene04WhatIKeep: React.FC = () => {
   const photo = photos.find(p => p.id === 'photo-02') || photos[1];
@@ -113,12 +113,7 @@ export const Scene04WhatIKeep: React.FC = () => {
               textAlign: 'left'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-rose)' }}>
-              <Heart size={18} fill="#9d3155" />
-              <span style={{ fontSize: '0.82rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600 }}>
-                TÂM SỰ CÙNG EM
-              </span>
-            </div>
+
 
             <p
               style={{
