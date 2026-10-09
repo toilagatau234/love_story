@@ -26,9 +26,13 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="story-root">
+    <div className="story-root" style={{ position: 'relative' }}>
       {/* Film Grain Texture */}
       <FilmGrain />
+
+      {/* Ambient Bokeh Orbs */}
+      <div className="ambient-glow ambient-glow-1" aria-hidden="true" />
+      <div className="ambient-glow ambient-glow-2" aria-hidden="true" />
 
       {/* Floating Audio Toggle */}
       <AudioPlayer />

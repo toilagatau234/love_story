@@ -1,43 +1,43 @@
 :root {
-  /* Brand Palette from Tash Spec */
-  --color-bg: #100D10;
-  --color-bg-soft: #19151A;
-  --color-bg-translucent: rgba(16, 13, 16, 0.75);
-  --color-card-bg: rgba(25, 21, 26, 0.85);
+  /* Brand Palette */
+  --color-bg: #0D0A0D;
+  --color-bg-soft: #161217;
+  --color-bg-translucent: rgba(13, 10, 13, 0.82);
+  --color-card-bg: rgba(22, 18, 23, 0.85);
   
   --color-wine: #9d3155;
   --color-wine-dark: #6a1f38;
-  --color-wine-glow: rgba(157, 49, 85, 0.4);
+  --color-wine-glow: rgba(157, 49, 85, 0.45);
   
   --color-rose: #C39A91;
   --color-rose-soft: rgba(195, 154, 145, 0.2);
   
   --color-ivory: #F4EEE7;
-  --color-ivory-dim: #E2DAD2;
-  --color-muted: #C0B4B1;
+  --color-ivory-dim: #DDD3CB;
+  --color-muted: #BDB0AD;
   --color-border: rgba(195, 154, 145, 0.25);
-  --color-border-glow: rgba(195, 154, 145, 0.5);
+  --color-border-glow: rgba(195, 154, 145, 0.55);
 
   /* Fonts */
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Inter", sans-serif;
   --font-handwriting: "Alex Brush", cursive;
 
-  /* Typography Fluid Sizing - Enhanced for clarity and readability */
+  /* Typography Fluid Sizing */
   --text-eyebrow: clamp(0.75rem, 0.7rem + 0.3vw, 0.9rem);
   --text-body: clamp(1.1rem, 1.02rem + 0.4vw, 1.35rem);
   --text-lead: clamp(1.35rem, 1.22rem + 0.6vw, 1.75rem);
-  --text-h3: clamp(1.55rem, 1.35rem + 1vw, 2.2rem);
-  --text-h2: clamp(2rem, 1.7rem + 1.8vw, 3.4rem);
+  --text-h3: clamp(1.6rem, 1.4rem + 1vw, 2.3rem);
+  --text-h2: clamp(2.1rem, 1.75rem + 1.8vw, 3.6rem);
   --text-h1: clamp(2.8rem, 2.3rem + 3.2vw, 5.2rem);
   --text-display: clamp(3.6rem, 2.8rem + 5vw, 7rem);
 
   /* Elevation & Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.65);
-  --shadow-photo: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.15);
-  --shadow-glow: 0 0 45px var(--color-wine-glow);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.75);
+  --shadow-photo: 0 22px 55px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.2);
+  --shadow-glow: 0 0 50px var(--color-wine-glow);
 
   /* Viewport & Safe Area */
   --safe-top: env(safe-area-inset-top, 0px);
@@ -45,13 +45,13 @@
   --viewport-h: 100dvh;
 
   /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
   --radius-pill: 9999px;
 
   /* Transitions */
-  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.4s var(--ease-cinematic);
-  --transition-slow: 0.8s var(--ease-cinematic);
+  --transition-slow: 0.9s var(--ease-cinematic);
 }

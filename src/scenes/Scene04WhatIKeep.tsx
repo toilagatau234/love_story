@@ -4,9 +4,9 @@ import { ScrollCue } from '../components/ScrollCue';
 import { storyData } from '../data/story';
 import { photos } from '../data/photos';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { Sparkles, Heart } from 'lucide-react';
 
 export const Scene04WhatIKeep: React.FC = () => {
-  // Requirement 5: Scene 4 replaced with beach photo (photo-02)!
   const photo = photos.find(p => p.id === 'photo-02') || photos[1];
   const containerRef = useScrollReveal<HTMLDivElement>(0.12);
 
@@ -31,15 +31,17 @@ export const Scene04WhatIKeep: React.FC = () => {
           gap: '3rem'
         }}
       >
-        {/* Title without chapter header */}
+        {/* Title Synchronized with Website Style */}
         <div className="reveal-init delay-1">
           <h2
             className="scene-title"
             style={{
-              fontSize: 'clamp(2.2rem, 1.8rem + 2.2vw, 3.8rem)',
-              maxWidth: '740px',
+              fontSize: 'clamp(2.3rem, 1.9rem + 2.4vw, 4rem)',
+              maxWidth: '760px',
               margin: '0 auto',
-              lineHeight: 1.25
+              lineHeight: 1.22,
+              color: 'var(--color-ivory)',
+              textShadow: '0 4px 25px rgba(0, 0, 0, 0.85)'
             }}
           >
             {storyData.scene04.title}
@@ -56,44 +58,47 @@ export const Scene04WhatIKeep: React.FC = () => {
             width: '100%'
           }}
         >
-          {/* Framed Beach Photo */}
+          {/* Framed Beach Photo with Floating Motion */}
           <div
-            className="reveal-init delay-2"
+            className="reveal-init delay-2 floating-subtle-1"
             style={{
               position: 'relative',
               width: '100%',
-              maxWidth: '360px',
+              maxWidth: '380px',
               aspectRatio: '1 / 1.15',
               borderRadius: '24px',
               overflow: 'hidden',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.8), 0 0 35px rgba(157, 49, 85, 0.25)',
-              border: '1px solid rgba(195, 154, 145, 0.3)'
+              boxShadow: '0 25px 60px rgba(0,0,0,0.85), var(--shadow-glow)',
+              border: '1px solid var(--color-border-glow)'
             }}
           >
             <img
               src={photo.src}
               alt={photo.alt}
+              className="ken-burns"
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center 32%'
+                objectPosition: 'center 32%',
+                display: 'block'
               }}
             />
             <div
               style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, rgba(16, 13, 16, 0.55) 0%, transparent 60%)'
+                background: 'linear-gradient(to top, rgba(13, 10, 13, 0.6) 0%, transparent 60%)',
+                pointerEvents: 'none'
               }}
             />
           </div>
 
-          {/* Narrative Content with exact text from Requirement 6 */}
+          {/* Sincere Confession Card Styled Harmoniously with Website Theme */}
           <div
-            className="reveal-init delay-3"
+            className="reveal-init delay-3 shimmer-card"
             style={{
-              maxWidth: '680px',
+              maxWidth: '700px',
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
@@ -101,20 +106,29 @@ export const Scene04WhatIKeep: React.FC = () => {
               backgroundColor: 'var(--color-card-bg)',
               border: '1px solid var(--color-border)',
               borderRadius: 'var(--radius-lg)',
-              padding: '2.5rem 2.2rem',
-              backdropFilter: 'blur(16px)',
-              boxShadow: 'var(--shadow-md)',
+              padding: '2.8rem 2.4rem',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: 'var(--shadow-lg), 0 0 35px rgba(157, 49, 85, 0.2)',
               textAlign: 'left'
             }}
           >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--color-rose)' }}>
+              <Heart size={18} fill="#9d3155" />
+              <span style={{ fontSize: '0.82rem', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600 }}>
+                TÂM SỰ CÙNG EM
+              </span>
+            </div>
+
             <p
               style={{
-                fontSize: 'clamp(1.25rem, 1.15rem + 0.5vw, 1.55rem)',
+                fontSize: 'clamp(1.35rem, 1.22rem + 0.55vw, 1.7rem)',
                 color: 'var(--color-rose)',
                 fontWeight: 500,
-                lineHeight: 1.65,
+                lineHeight: 1.6,
                 fontFamily: 'var(--font-display)',
-                letterSpacing: '0.01em'
+                letterSpacing: '0.01em',
+                fontStyle: 'italic'
               }}
             >
               “{storyData.scene04.paragraphs[0]}”
@@ -122,10 +136,11 @@ export const Scene04WhatIKeep: React.FC = () => {
 
             <p
               style={{
-                fontSize: 'clamp(1.1rem, 1.02rem + 0.4vw, 1.35rem)',
-                color: 'var(--color-ivory-dim)',
-                lineHeight: 1.85,
-                fontWeight: 300
+                fontSize: 'clamp(1.12rem, 1.05rem + 0.35vw, 1.35rem)',
+                color: 'var(--color-ivory)',
+                lineHeight: 1.9,
+                fontWeight: 300,
+                letterSpacing: '0.01em'
               }}
             >
               {storyData.scene04.paragraphs[1]}
@@ -133,7 +148,7 @@ export const Scene04WhatIKeep: React.FC = () => {
           </div>
         </div>
 
-        {/* Transition CTA directly to the final surprise gift (Requirement 7) */}
+        {/* Transition CTA directly to the final surprise gift */}
         <div
           className="reveal-init delay-4"
           style={{
@@ -141,17 +156,18 @@ export const Scene04WhatIKeep: React.FC = () => {
             flexDirection: 'column',
             alignItems: 'center',
             gap: '1.5rem',
-            marginTop: '1rem'
+            marginTop: '1.25rem'
           }}
         >
           <button
             className="btn-primary"
             onClick={handleGoToGift}
             style={{
-              padding: '1rem 2.6rem',
-              fontSize: '1.05rem'
+              padding: '1.05rem 2.8rem',
+              fontSize: '1.1rem'
             }}
           >
+            <Sparkles size={18} />
             <span>{storyData.scene04.ctaButton}</span>
           </button>
           

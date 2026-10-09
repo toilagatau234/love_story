@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gift } from 'lucide-react';
+import { Gift, Heart } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { finalGift } from '../data/finalGift';
 
@@ -13,10 +13,10 @@ export const GiftBox: React.FC = () => {
 
     try {
       confetti({
-        particleCount: 65,
-        spread: 70,
-        origin: { y: 0.7 },
-        colors: ['#C39A91', '#9d3155', '#F4EEE7', '#fcd5ce']
+        particleCount: 75,
+        spread: 75,
+        origin: { y: 0.65 },
+        colors: ['#C39A91', '#9d3155', '#F4EEE7', '#fcd5ce', '#e0a899']
       });
     } catch {
       // Fallback
@@ -31,7 +31,7 @@ export const GiftBox: React.FC = () => {
   return (
     <div style={{
       width: '100%',
-      maxWidth: '720px',
+      maxWidth: '750px',
       margin: '0 auto',
       display: 'flex',
       flexDirection: 'column',
@@ -39,7 +39,7 @@ export const GiftBox: React.FC = () => {
       position: 'relative'
     }}>
       {!isOpen ? (
-        // Unopened Gift Box (Directly clickable, no text under title - Requirement 3)
+        // Unopened Gift Box
         <div
           onClick={handleOpenGift}
           style={{
@@ -47,47 +47,47 @@ export const GiftBox: React.FC = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '1.5rem',
-            padding: '2.5rem 2rem',
+            gap: '1.75rem',
+            padding: '2.8rem 2.2rem',
             backgroundColor: 'var(--color-card-bg)',
             border: '1px solid var(--color-border)',
             borderRadius: 'var(--radius-lg)',
             boxShadow: 'var(--shadow-lg), var(--shadow-glow)',
-            transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
             transform: isOpening ? 'scale(1.08)' : 'scale(1)',
             opacity: isOpening ? 0.7 : 1,
             userSelect: 'none',
-            maxWidth: '440px',
+            maxWidth: '450px',
             width: '92%'
           }}
-          className="gift-box-interactive"
+          className="gift-box-interactive shimmer-card"
         >
           {/* Visual Gift Container */}
           <div style={{
             position: 'relative',
-            width: '135px',
-            height: '135px',
+            width: '140px',
+            height: '140px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
             <div style={{
               position: 'absolute',
-              inset: '-12px',
+              inset: '-15px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(157, 49, 85, 0.35) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(157, 49, 85, 0.4) 0%, transparent 70%)',
               animation: 'pulseGlow 2.5s infinite alternate'
             }} />
 
             {/* Gift Box Body */}
             <div style={{
-              width: '115px',
-              height: '105px',
+              width: '120px',
+              height: '110px',
               background: 'linear-gradient(145deg, #7a2544 0%, #441425 100%)',
-              borderRadius: '14px',
-              border: '1px solid rgba(195, 154, 145, 0.45)',
+              borderRadius: '16px',
+              border: '1px solid rgba(195, 154, 145, 0.5)',
               position: 'relative',
-              boxShadow: '0 12px 25px rgba(0,0,0,0.55)',
+              boxShadow: '0 15px 30px rgba(0,0,0,0.6)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -97,9 +97,9 @@ export const GiftBox: React.FC = () => {
                 position: 'absolute',
                 top: 0,
                 bottom: 0,
-                width: '18px',
+                width: '20px',
                 background: 'linear-gradient(180deg, #dfb4ab 0%, #b3887f 100%)',
-                boxShadow: '0 0 8px rgba(195, 154, 145, 0.4)'
+                boxShadow: '0 0 10px rgba(195, 154, 145, 0.5)'
               }} />
 
               {/* Horizontal Ribbon */}
@@ -107,21 +107,21 @@ export const GiftBox: React.FC = () => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                height: '18px',
+                height: '20px',
                 background: 'linear-gradient(90deg, #dfb4ab 0%, #b3887f 100%)',
-                boxShadow: '0 0 8px rgba(195, 154, 145, 0.4)'
+                boxShadow: '0 0 10px rgba(195, 154, 145, 0.5)'
               }} />
 
               {/* Center Bow */}
               <div style={{
                 position: 'absolute',
-                top: '-14px',
+                top: '-15px',
                 zIndex: 2,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <Gift size={34} color="#F4EEE7" />
+                <Gift size={36} color="#F4EEE7" />
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export const GiftBox: React.FC = () => {
           <div style={{ textAlign: 'center' }}>
             <h3 style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.5rem, 1.3rem + 1vw, 2rem)',
+              fontSize: 'clamp(1.6rem, 1.4rem + 1vw, 2.2rem)',
               color: 'var(--color-ivory)',
               margin: '0',
               fontWeight: 400
@@ -139,26 +139,29 @@ export const GiftBox: React.FC = () => {
           </div>
         </div>
       ) : (
-        // Revealed Flower Bouquet and Love Letter
+        // Revealed Flower Bouquet (Clean, NO text overlay) and Harmonized Love Letter
         <div style={{
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '2.5rem',
-          animation: 'fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards'
+          gap: '3rem',
+          animation: 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards'
         }}>
-          {/* Flower Bouquet Frame - PURE, CLEAN, ZERO TEXT OVERLAY */}
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            maxWidth: '460px',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            backgroundColor: '#19151A',
-            border: '1px solid rgba(195, 154, 145, 0.35)',
-            boxShadow: '0 25px 65px rgba(0,0,0,0.85), 0 0 50px rgba(157, 49, 85, 0.35)'
-          }}>
+          {/* Flower Bouquet Frame */}
+          <div
+            className="floating-subtle-1"
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: '480px',
+              borderRadius: '26px',
+              overflow: 'hidden',
+              backgroundColor: '#161217',
+              border: '1px solid var(--color-border-glow)',
+              boxShadow: '0 28px 70px rgba(0,0,0,0.85), var(--shadow-glow)'
+            }}
+          >
             <img
               src={finalGift.image}
               alt="Bó hoa dành riêng cho Bé Cam"
@@ -171,68 +174,87 @@ export const GiftBox: React.FC = () => {
             />
           </div>
 
-          {/* Sincere Love Letter */}
-          <div style={{
-            width: '100%',
-            maxWidth: '640px',
-            backgroundColor: 'rgba(25, 21, 26, 0.8)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '2.8rem 2.2rem',
-            position: 'relative',
-            backdropFilter: 'blur(16px)',
-            boxShadow: 'var(--shadow-md)'
-          }}>
+          {/* Sincere Love Letter Harmonized with Website Style */}
+          <div
+            className="shimmer-card"
+            style={{
+              width: '100%',
+              maxWidth: '680px',
+              backgroundColor: 'var(--color-card-bg)',
+              border: '1px solid var(--color-border)',
+              borderRadius: 'var(--radius-lg)',
+              padding: '3rem 2.5rem',
+              position: 'relative',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: 'var(--shadow-lg), 0 0 35px rgba(157, 49, 85, 0.2)'
+            }}
+          >
+            {/* Header Badge */}
             <div style={{
               display: 'flex',
-              justifyContent: 'center',
-              marginBottom: '1.75rem'
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '0.4rem',
+              marginBottom: '2rem'
             }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--color-rose)' }}>
+                <Heart size={16} fill="#9d3155" />
+                <span style={{ fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>
+                  DÀNH CHO BÉ CAM
+                </span>
+              </div>
               <span style={{
                 fontFamily: 'var(--font-handwriting)',
-                fontSize: '2.4rem',
-                color: 'var(--color-rose)',
-                letterSpacing: '0.05em'
+                fontSize: '2.8rem',
+                color: 'var(--color-ivory)',
+                letterSpacing: '0.04em',
+                lineHeight: 1.1
               }}>
                 Thư gửi Bé Cam
               </span>
             </div>
 
+            {/* Content Synchronized with Website Style */}
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '1.4rem',
-              color: 'var(--color-ivory-dim)',
-              fontSize: 'clamp(1.1rem, 1.02rem + 0.35vw, 1.35rem)',
-              lineHeight: 1.9,
-              fontWeight: 300
+              gap: '1.6rem',
+              color: 'var(--color-ivory)',
+              fontSize: 'clamp(1.15rem, 1.05rem + 0.35vw, 1.38rem)',
+              lineHeight: 1.95,
+              fontWeight: 300,
+              letterSpacing: '0.01em'
             }}>
               {finalGift.letterContent.map((paragraph, idx) => (
-                <p key={idx} style={{ textIndent: '1.5rem' }}>
+                <p key={idx} style={{ textIndent: '1.75rem' }}>
                   {paragraph}
                 </p>
               ))}
             </div>
 
+            {/* Signature */}
             <div style={{
-              marginTop: '2.25rem',
+              marginTop: '2.5rem',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-end',
               borderTop: '1px solid rgba(195, 154, 145, 0.2)',
-              paddingTop: '1.5rem'
+              paddingTop: '1.75rem'
             }}>
               <span style={{
-                fontSize: '0.95rem',
-                color: 'var(--color-muted)'
+                fontSize: '1rem',
+                color: 'var(--color-rose)',
+                fontStyle: 'italic',
+                fontFamily: 'var(--font-display)'
               }}>
                 Thương em thật nhiều,
               </span>
               <span style={{
                 fontFamily: 'var(--font-handwriting)',
-                fontSize: '2.2rem',
-                color: 'var(--color-rose)',
-                marginTop: '0.25rem'
+                fontSize: '2.5rem',
+                color: 'var(--color-ivory)',
+                marginTop: '0.2rem'
               }}>
                 {finalGift.letterSender}
               </span>
@@ -249,7 +271,7 @@ export const GiftBox: React.FC = () => {
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(25px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
