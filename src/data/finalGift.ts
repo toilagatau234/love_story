@@ -11,14 +11,14 @@ export type FinalGiftConfig = {
 
 export const finalGift: FinalGiftConfig = {
   enabled: true,
-  title: "Một món quà nhỏ gửi đến bạn…",
-  message: "Một điều bất ngờ được chuẩn bị cho bạn.",
+  title: "Anh còn chuẩn bị cho em một điều nhỏ nữa…",
+  message: "Một món quà được chuẩn bị bằng tất cả sự chân thành gửi đến Bé Cam.",
   image: "/images/flower-bouquet.webp",
   ctaLabel: "Chạm để mở món quà",
-  letterSender: "Người gửi",
-  letterRecipient: "Bạn",
+  letterSender: "Anh",
+  letterRecipient: "Bé Cam",
   letterContent: [
-    "Đây là những dòng chữ tượng trưng lưu giữ những kỷ niệm đẹp đẽ của thanh xuân. Mỗi chặng đường đi qua đều để lại những trải nghiệm và cảm xúc đáng quý.",
-    "Chúc bạn luôn mỉm cười rạng rỡ, gặp nhiều may mắn, niềm vui và luôn tìm thấy sự bình yên trên hành trình phía trước."
+    "Bó hoa này là bó hoa đầu tiên anh tặng cho một người con gái. Anh muốn tạo cho em bất ngờ cơ, nhưng anh sợ nó chưa đúng ý dù anh biết em sẽ không bận tâm và luôn vui vẻ với những món quà anh tặng cho em. Nhưng anh luôn muốn cho em những cái tốt nhất.",
+    "Anh rất hạnh phúc vì em đã hiện diện trong cuộc đời anh, chưa bao giờ hối hận vì đã thương em. Mong rằng em sẽ luôn bên cạnh anh và không rời đi nữa, để anh được là người được đồng hành và che chở cho em."
   ]
 };

@@ -85,7 +85,7 @@ export const Scene06FinalSurprise: React.FC = () => {
               lineHeight: 1.6
             }}
           >
-            “Cảm ơn vì đã là một phần tươi đẹp nhất trong những năm tháng thanh xuân.”
+            “Cảm ơn em vì đã là một phần tươi đẹp nhất trong thanh xuân của anh.”
           </p>
           <span
             style={{
@@ -96,7 +96,7 @@ export const Scene06FinalSurprise: React.FC = () => {
               fontWeight: 500
             }}
           >
-            {storyData.meta.duration} & Kỷ niệm
+            Sáu năm & Mãi mãi
           </span>
         </div>
       </div>

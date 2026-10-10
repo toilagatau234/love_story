@@ -30,41 +30,41 @@ export interface StoryConfig {
 
 export const storyData: StoryConfig = {
   meta: {
-    sender: "Một người",
-    recipient: "Một người",
-    duration: "Thời gian",
-    tagline: "Một câu chuyện về những ngày tháng đã qua."
+    sender: "Anh",
+    recipient: "Bé Cam",
+    duration: "Sáu năm",
+    tagline: "Có một điều ước mà anh đã luôn mơ về nó."
   },
   scene00: {
-    title: "Có một điều muốn gửi gắm đến bạn…",
+    title: "Bé Cam, có một điều anh muốn nói với em…",
     scrollCue: "CUỘN ĐỂ TIẾP TỤC"
   },
   scene01: {
-    title: "Thời gian trôi.",
+    title: "Sáu năm.",
     paragraphs: [
-      "Những ngày tháng thanh xuân luôn là kỷ niệm đẹp.",
-      "Và những điều bình dị nhất luôn đọng lại sâu sắc.",
-      "Một câu chuyện được viết nên từ những khoảnh khắc chân thành nhất."
+      "Anh vẫn luôn thương em suốt thời gian qua.",
+      "Và em đã biết điều này rồi.",
+      "Hôm nay, với tình cảm chân thành nhất anh muốn trao cho em một danh phận đàng hoàng."
     ]
   },
   scene02: {
-    title: "Những ký ức nhỏ bé theo năm tháng.",
+    title: "Có những điều nhỏ bé, nhưng anh nhớ rất lâu.",
     quotes: [
-      "Những chặng đường đã cùng nhau đi qua.",
-      "Những bức ảnh lưu giữ nụ cười tuổi trẻ.",
-      "Và những khoảnh khắc chỉ cần nhìn lại đã thấy lòng bình yên."
+      "Những lần bên cạnh nhau.",
+      "Những bức ảnh chẳng cần hoàn hảo.",
+      "Và những khoảnh khắc mà chỉ cần nhìn lại, anh đã thấy lòng ngập tràn bình yên."
     ]
   },
   scene03: {
-    title: "Lưu giữ những khoảnh khắc đẹp.",
-    subtitle: "Mỗi bức ảnh là một mảnh ghép ý nghĩa của hành trình thanh xuân."
+    title: "Có những khoảnh khắc, anh chỉ muốn giữ lại thật lâu.",
+    subtitle: "Không phải vì mọi thứ đều hoàn hảo, mà vì đó là những khoảnh khắc có ý nghĩa nhất với anh."
   },
   scene04: {
-    title: "Những dòng cảm xúc chân thành.",
+    title: "Có một điều anh không muốn chỉ giữ trong lòng nữa.",
     paragraphs: [
-      "Cảm ơn vì những kỷ niệm tuyệt vời trong suốt thời gian qua.",
-      "Chúc cho mỗi chúng ta đều tìm thấy hạnh phúc, bình yên và những điều tốt đẹp nhất."
+      "Suốt thời gian qua, anh đã thương em quá nhiều.",
+      "Anh muốn được nghiêm túc, có thể thương, có thể ghen bằng một mối quan hệ — nếu em cũng cho phép điều đó."
     ],
-    ctaButton: "Món quà kỷ niệm"
+    ctaButton: "Điều anh dành riêng cho em"
   }
 };

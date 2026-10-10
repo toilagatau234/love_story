@@ -230,7 +230,7 @@ export const GiftBox: React.FC = () => {
                 fontStyle: 'italic',
                 fontFamily: 'var(--font-display)'
               }}>
-                Thương gửi,
+                Thương em thật nhiều,
               </span>
               <span style={{
                 fontFamily: 'var(--font-handwriting)',
